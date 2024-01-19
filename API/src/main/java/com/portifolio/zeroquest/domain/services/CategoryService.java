@@ -5,6 +5,7 @@ import com.portifolio.zeroquest.domain.entities.Category;
 import com.portifolio.zeroquest.domain.exceptions.EntityResourceNotFoundException;
 import com.portifolio.zeroquest.domain.repositories.CategoryRepository;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,15 +38,7 @@ public class CategoryService {
 
     }
 
-    /*public CategoryDTO findById(Long id) {
-        Optional<Category> obj = repository.findById(id);
-
-        Category entity = obj.orElseThrow( () -> new EntityResourceNotFoundException("Entidade não encontrada"));
-        return new CategoryDTO(entity);
-
-    }*/
-
-    @Transactional()
+    @Transactional
     public CategoryDTO insert(CategoryDTO dto) {
         Category entity = new Category();
 
@@ -54,5 +47,22 @@ public class CategoryService {
         entity = repository.save(entity);
 
         return new CategoryDTO(entity);
+    }
+
+    @Transactional
+    public CategoryDTO update(Long id, CategoryDTO body) {
+
+        try {
+            Category entity = repository.getReferenceById(id);
+            entity.setNome(body.nome());
+
+            entity = repository.save(entity);
+
+            return new CategoryDTO(entity);
+
+        }
+        catch (EntityNotFoundException e){
+            throw new EntityResourceNotFoundException(e.getMessage());
+        }
     }
 }
