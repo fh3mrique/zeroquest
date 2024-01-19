@@ -2,11 +2,9 @@ package com.portifolio.zeroquest.api;
 
 import com.portifolio.zeroquest.domain.dtos.CategoryDTO;
 import com.portifolio.zeroquest.domain.services.CategoryService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +27,12 @@ public class CategoryResource {
     public ResponseEntity<CategoryDTO> findAll(@PathVariable Long id){
         CategoryDTO bodyRequest = categoryService.findById(id);
         return  ResponseEntity.ok().body(bodyRequest);
+    }
+
+    @PostMapping
+    public ResponseEntity<CategoryDTO> insert (@RequestBody CategoryDTO body){
+        CategoryDTO bodyRequest = categoryService.insert(body);
+
+       return ResponseEntity.status(HttpStatus.CREATED).body(bodyRequest);
     }
 }
