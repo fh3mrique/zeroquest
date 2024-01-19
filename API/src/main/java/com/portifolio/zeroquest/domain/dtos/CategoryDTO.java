@@ -8,6 +8,7 @@ import java.util.Optional;
 public record CategoryDTO(Long id, String nome) {
 
     public CategoryDTO(Category entity) {
+
         this(entity.getId(), entity.getNome());
     }
 

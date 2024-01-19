@@ -1,7 +1,11 @@
 package com.portifolio.zeroquest.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.portifolio.zeroquest.domain.dtos.CategoryDTO;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,6 +16,10 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "categories")
+    private List<Game> games = new ArrayList<>();
 
     public Category(){
 
@@ -37,6 +45,9 @@ public class Category {
         this.nome = nome;
     }
 
+    public List<Game> getGames() {
+        return games;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
