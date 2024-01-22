@@ -27,9 +27,10 @@ public class UserService {
 
     private BCryptPasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository repository, RoleRepository roleRepository) {
+    public UserService(UserRepository repository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder) {
         this.repository = repository;
         this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<UserDTO> findAll(){
@@ -54,7 +55,7 @@ public class UserService {
         entity.setId(dto.getId());
         entity.setFirstName(dto.getFirstName());
         entity.setLastName(dto.getLastName());
-        entity.setLastName(dto.getEmail());
+        entity.setEmail(dto.getEmail());
         //vai encriptar a senha que o usuario passar quando for inserir um novo User
         entity.setPassword(passwordEncoder.encode(dto.getPassword()) );
         for (RoleDTO roleDTO : dto.getRoles()){
