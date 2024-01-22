@@ -1,3 +1,4 @@
+
 INSERT INTO tb_categoty (nome) VALUES ('Terror');
 INSERT INTO tb_categoty (nome) VALUES ('Ação');
 INSERT INTO tb_categoty (nome) VALUES ('RPG');
@@ -17,4 +18,16 @@ INSERT INTO tb_game_category ( game_id, category_id) VALUES (2, 6);
 INSERT INTO tb_game_category ( game_id, category_id) VALUES (3, 1);
 INSERT INTO tb_game_category ( game_id, category_id) VALUES (3, 2);
 INSERT INTO tb_game_category ( game_id, category_id) VALUES (3, 6);
+
+INSERT INTO tb_user (first_name, last_name, email, password) VALUES ('filipe', 'lima', 'fhl@gmail.com', '123456');
+INSERT INTO tb_user (first_name, last_name, email, password) VALUES ('adm', 'lima', 'adm@gmail.com', '123456');
+
+
+INSERT INTO tb_role (authority) VALUES ('ROLE_OPERATOR');
+INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
+
+INSERT INTO tb_user_role(user_id, role_id) VALUES (1,1);
+INSERT INTO tb_user_role(user_id, role_id) VALUES (2,1);
+INSERT INTO tb_user_role(user_id, role_id) VALUES (2,2);
+
 
