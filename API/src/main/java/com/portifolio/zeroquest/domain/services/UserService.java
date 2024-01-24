@@ -11,6 +11,11 @@ import com.portifolio.zeroquest.domain.exceptions.EntityResourceNotFoundExceptio
 import com.portifolio.zeroquest.domain.repositories.RoleRepository;
 import com.portifolio.zeroquest.domain.repositories.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,12 +25,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
     private UserRepository repository;
 
     private RoleRepository roleRepository;
 
     private BCryptPasswordEncoder passwordEncoder;
+
+    private Logger log = LoggerFactory.getLogger(UserService.class);
 
     public UserService(UserRepository repository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder) {
         this.repository = repository;
@@ -89,5 +96,18 @@ public class UserService {
         catch (EntityNotFoundException e){
             throw new EntityResourceNotFoundException(e.getMessage());
         }
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = repository.findByEmail(username);
+
+        if (user == null){
+            log.error("user não encotrado " + username);
+            throw new UsernameNotFoundException("Email não encontrado");
+        }
+
+        log.info("user encontrado " + username);
+        return user;
     }
 }
