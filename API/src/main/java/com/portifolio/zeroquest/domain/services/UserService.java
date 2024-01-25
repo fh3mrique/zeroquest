@@ -100,7 +100,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = repository.findByEmail(username);
+        UserDetails user = repository.findByEmail(username);
 
         if (user == null){
             log.error("user não encotrado " + username);
