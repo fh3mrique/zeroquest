@@ -1,0 +1,38 @@
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-family: "Space Mono", monospace;
+}
+
+.btn-container button {
+  border-radius: 10px 0 0 10px;
+  height: 60px;
+  background-color: #555555;
+  width: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.btn-container button:hover {
+    background-color: #555555; /* Cor desejada ao passar o mouse */
+  }
+.btn h6 {
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: "Space Mono", monospace;
+  font-weight: bold;
+}
+.btn-icon-container {
+  width: 70px;
+  height: 60px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 10px 10px 0px;
+}

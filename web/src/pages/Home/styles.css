@@ -1,0 +1,38 @@
+
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  background-color: #EBE6D7;
+  height: calc(100vh - 115px);
+  font-family: "Space Mono", monospace;
+}
+.home-text {
+  width: 680px;
+  margin-right: 90px;
+}
+
+.home-title {
+  margin-bottom: 50px;
+}
+
+.home-title h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #000000;
+}
+
+.home-subtext {
+  margin-bottom: 50px;
+  color: #626060;
+}
+
+.home-img-container{
+    background-color: #E778CE;
+    border-radius: 50%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
