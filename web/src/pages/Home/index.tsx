@@ -1,6 +1,7 @@
-import HomeImg from '../../assets/imgs/homeimg.png'
-import ButtonIcon from '../../components/ButtonIcon';
-import './styles.css'
+import { Link } from "react-router-dom";
+import HomeImg from "../../assets/imgs/homeimg.png";
+import ButtonIcon from "../../components/ButtonIcon";
+import "./styles.css";
 
 const Home = () => {
   return (
@@ -17,9 +18,11 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="btn-home-container">
-          <ButtonIcon/>
-        </div>
+        <Link to="/library">
+          <div className="btn-home-container">
+            <ButtonIcon />
+          </div>
+        </Link>
       </div>
 
       <div className="home-img-container">

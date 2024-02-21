@@ -1,8 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Open+Sans:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Open+Sans:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-/* .nav-bar{
-  height: 90px;
-} */
 .container-header-fluid {
   display: flex;
   justify-content: space-between;
@@ -13,7 +10,13 @@
 .nav-logo-header {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
+.custom-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .nav-logo-header img {
   height: 70px;
   width: 70px;
@@ -26,21 +29,20 @@
   font-style: normal;
   font-size: 36px;
 }
-.nav-menu-header{
+.nav-menu-header {
   margin-right: 50px;
   display: flex;
   align-items: center;
 }
 
 .nav-menu-header ul {
-    display: flex;
-    flex-direction: row;
-    font-family: "Space Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 30px;
-    justify-content: space-around;
-    
+  display: flex;
+  flex-direction: row;
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  justify-content: space-around;
 }
 
 .nav-menu-header li {
