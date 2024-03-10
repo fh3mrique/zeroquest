@@ -7,6 +7,8 @@ import com.portifolio.zeroquest.domain.entities.Game;
 import com.portifolio.zeroquest.domain.exceptions.EntityResourceNotFoundException;
 import com.portifolio.zeroquest.domain.repositories.GameRepository;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,21 +24,20 @@ public class GameService {
         this.repository = repository;
     }
 
-    public List<GameDTO> findAll(){
-        var games = repository.findAll();
+    public Page<GameDTO> findAll(Pageable pageable){
+        Page<Game> gamesPaged = repository.findAll(pageable);
 
-        return games.stream().map(x -> new GameDTO(x)).collect(Collectors.toList());
+        return gamesPaged.map(x -> new GameDTO(x));
     }
 
-   /* public GameDTO findById(Long id) {
+   public GameDTO findById(Long id) {
         Optional<Game> game = Optional.ofNullable(repository.findById(id).orElseThrow(
                 () -> new EntityResourceNotFoundException("Entidade não encontrada")
         ));
-
-        return new CategoryDTO(game.get());
-
+        return new GameDTO(game.get());
     }
 
+    /*
     @Transactional
     public CategoryDTO insert(CategoryDTO dto) {
         Category entity = new Category();

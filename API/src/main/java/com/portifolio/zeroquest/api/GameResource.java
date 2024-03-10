@@ -4,6 +4,8 @@ import com.portifolio.zeroquest.domain.dtos.CategoryDTO;
 import com.portifolio.zeroquest.domain.dtos.GameDTO;
 import com.portifolio.zeroquest.domain.services.CategoryService;
 import com.portifolio.zeroquest.domain.services.GameService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,17 +22,18 @@ public class GameResource {
     }
 
     @GetMapping
-    public ResponseEntity<List<GameDTO>> findAll(){
-        List<GameDTO> bodyRequest = gameService.findAll();
+    public ResponseEntity<Page<GameDTO>> findAll(Pageable pageable){
+        Page<GameDTO> bodyRequest = gameService.findAll(pageable);
         return  ResponseEntity.ok().body(bodyRequest);
     }
 
-   /*@GetMapping(value = "/{id}")
-    public ResponseEntity<CategoryDTO> findAll(@PathVariable Long id){
-        CategoryDTO bodyRequest = categoryService.findById(id);
+   @GetMapping(value = "/{id}")
+    public ResponseEntity<GameDTO> findById(@PathVariable Long id){
+        GameDTO bodyRequest = gameService.findById(id);
         return  ResponseEntity.ok().body(bodyRequest);
     }
 
+    /*
     @PostMapping
     public ResponseEntity<CategoryDTO> insert (@RequestBody CategoryDTO body){
         CategoryDTO bodyRequest = categoryService.insert(body);
