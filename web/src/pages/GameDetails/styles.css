@@ -1,0 +1,53 @@
+.game-details-container{
+    padding: 20px;
+    background-color: rgba(235, 230, 215, 1);
+    font-size: 36px;
+    font-family: "Space Mono", monospace;
+    height: calc(100vh - 105px);
+}
+
+.goback-container{
+    display: flex;
+}
+
+.game-details-card{
+    padding: 10px;
+    background-color: rgba(235, 230, 215, 1);
+    box-sizing: unset;
+    padding: 50px;
+    
+}
+
+.img-container {
+    text-align: left;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  .img-container img {
+    width: 60%;
+  }
+
+.info-game-container{
+    background-color: rgba(225, 220, 205, 1);
+    
+}
+
+.info-game-container h1{
+    font-size: 32px;
+}
+
+.review-container{
+    background-color: rgba(225, 220, 205, 1)
+}
+
+.review-container h2{
+    font-weight: bold;
+    color: black;
+}
+.review-container p{
+    color: rgba(70, 70, 70, 1);
+}
+
+.grade-details{
+    color: rgba(64, 123, 255, 1);
+}
