@@ -1,0 +1,36 @@
+
+.game-card {
+  background-color: rgba(192, 192, 192, 1);
+}
+
+.img-card-game {
+  text-align: center;
+  padding: 16px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.img-card-game img {
+  width: 208px;
+  height: 208px;
+}
+
+.game-card-bottom {
+  padding: 20px;
+}
+.game-card-bottom h6 {
+  font-family: "Space Mono", monospace;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.rating-card-game {
+  font-family: "Space Mono", monospace;
+  display: flex;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.grade-card{
+    color: rgba(64, 123, 255, 1);
+
+}
