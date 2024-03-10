@@ -15,8 +15,15 @@ public class Game {
     private Long id;
     private String name;
 
+    @Column(name = "img_url")
+    private String imgUrl;
+
+    @ManyToOne
+    @JoinColumn(name = "platform_id")
+    private Platform platform;
+
     @Column(columnDefinition = "TEXT")
-    private  String review;
+    private String review;
 
     private Double grade;
 
@@ -25,11 +32,11 @@ public class Game {
 
     @ManyToMany
     @JoinTable(name = "tb_game_category",
-    joinColumns = @JoinColumn(name = "game_id"),
-    inverseJoinColumns = @JoinColumn(name = "category_id"))
+            joinColumns = @JoinColumn(name = "game_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories = new ArrayList<>();
 
-    public Game(){
+    public Game() {
 
     }
 
@@ -47,6 +54,26 @@ public class Game {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public Platform getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(Platform platform) {
+        this.platform = platform;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
     public String getReview() {
